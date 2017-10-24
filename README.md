@@ -1,2 +1,3 @@
-# cesium-components
-A set of reusable react wrappers around the Cesium.js library
+# Cesium Components
+
+Very much work in progress attempt to wrap Cesium fonctionality in react components.
