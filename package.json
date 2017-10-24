@@ -1,0 +1,25 @@
+{
+  "name": "cesium-components",
+  "version": "0.1.0",
+  "description": "Cesium.js wrapper React components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vizzuality/cesium-components.git"
+  },
+  "author": "Victor Saiz/Vizzuality <victor.saiz@vizzuality.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vizzuality/cesium-components/issues"
+  },
+  "homepage": "https://github.com/Vizzuality/cesium-components#readme",
+  "dependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2"
+  }
+}
