@@ -151,15 +151,6 @@ class CesiumComponent extends Component {
     const { layers, viewer, clickedPosition, hoverPosition } = state
     if (viewer) this[rotate ? 'addRotation' : 'removeRotation']()
 
-    const getPos = (window.getPos = () => {
-      const c = viewer.camera.positionCartographic
-      console.log(
-        Object.keys(c).reduce((a, k) => {
-          a[k] = Cesium.Math.toDegrees(c[k])
-          return a
-        }, {})
-      )
-    })
     return createElement(CesiumMapComponent, {
       mapId,
       layers,
