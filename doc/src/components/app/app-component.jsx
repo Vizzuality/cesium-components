@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, ImageProvider } from 'react-cesium';
-import './app.css'
+import './app.css';
 
 const AppComponent = ({ layers }) => (
   <Map className="cesium-map">
