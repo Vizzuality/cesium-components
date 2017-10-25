@@ -1,5 +1,5 @@
 {
-  "name": "cesium-components",
+  "name": "react-cesium",
   "version": "0.1.0",
   "description": "Cesium.js wrapper React components",
   "main": "./dist/react-cesium.js",
