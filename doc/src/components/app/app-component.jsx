@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, ImageProvider } from 'cesium-components';
+import { Map, ImageProvider } from 'react-cesium';
 import './app.css'
 
 const AppComponent = ({ layers }) => (
