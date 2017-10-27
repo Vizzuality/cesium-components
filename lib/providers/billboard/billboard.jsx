@@ -1,43 +1,44 @@
-import { Component } from 'react'
+import { Component } from 'react';
 import includes from 'lodash/includes'
-const { Cesium } = window
+;
+const { Cesium } = window;
 
 class Billboard extends Component {
   componentWillUnmount() {
-    const { viewer } = this.props
-    viewer.entities.remove(this.entity)
+    const { viewer } = this.props;
+    viewer.entities.remove(this.entity);
   }
-  handleHover = hoverPosition => {
-    const { viewer } = this.props
-    if (!viewer) return false
-    const { scene } = viewer
-    const pickedObject = scene.pick(hoverPosition)
+  handleHover = (hoverPosition) => {
+    const { viewer } = this.props;
+    if (!viewer) return false;
+    const { scene } = viewer;
+    const pickedObject = scene.pick(hoverPosition);
 
-    viewer.entities.values.map(bill => {
-      if (!bill.billboard) return bill
+    viewer.entities.values.map((bill) => {
+      if (!bill.billboard) return bill;
       if (pickedObject) {
         if (pickedObject.id.id === bill.id) {
-          bill.billboard.image = bill.imageHover
+          bill.billboard.image = bill.imageHover;
         } else {
-          bill.billboard.image = bill.image
+          bill.billboard.image = bill.image;
         }
       } else {
-        bill.billboard.image = bill.image
+        bill.billboard.image = bill.image;
       }
-    })
+    });
   }
 
-  handleClick = clickedPosition => {
-    const { viewer, onClick, id } = this.props
-    if (!viewer) return false
-    const { scene } = viewer
-    const pickedObject = scene.pick(clickedPosition)
+  handleClick = (clickedPosition) => {
+    const { viewer, onClick, id } = this.props;
+    if (!viewer) return false;
+    const { scene } = viewer;
+    const pickedObject = scene.pick(clickedPosition);
     if (Cesium.defined(pickedObject) && pickedObject.id.id === id) {
-      onClick(pickedObject.id.id)
+      onClick(pickedObject.id.id);
     }
   }
 
-  mountBillboard = viewer => {
+  mountBillboard = (viewer) => {
     const {
       id,
       url: image,
@@ -45,9 +46,9 @@ class Billboard extends Component {
       width,
       height,
       position: [lat, long],
-      verticalOrigin
-    } = this.props
-    if (!viewer) return false
+      verticalOrigin,
+    } = this.props;
+    if (!viewer) return false;
     this.entity = viewer.entities.add({
       position: Cesium.Cartesian3.fromDegrees(lat, long),
       id,
@@ -58,9 +59,9 @@ class Billboard extends Component {
         imageHover,
         width,
         height,
-        verticalOrigin
-      }
-    })
+        verticalOrigin,
+      },
+    });
   }
 
   render() {
@@ -68,18 +69,18 @@ class Billboard extends Component {
       viewer,
       id,
       clickedPosition,
-      hoverPosition
-    } = this.props
+      hoverPosition,
+    } = this.props;
 
     if (viewer) {
-      const existing = viewer.entities.values.map(e => e.id)
-      if (!includes(existing, id)) this.mountBillboard(viewer)
-      if (clickedPosition) this.handleClick(clickedPosition)
-      if (hoverPosition) this.handleHover(hoverPosition)
+      const existing = viewer.entities.values.map(e => e.id);
+      if (!includes(existing, id)) this.mountBillboard(viewer);
+      if (clickedPosition) this.handleClick(clickedPosition);
+      if (hoverPosition) this.handleHover(hoverPosition);
     }
 
-    return null
+    return null;
   }
 }
 
-export default Billboard
+export default Billboard;
