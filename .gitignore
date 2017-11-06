@@ -1,1 +1,6 @@
 dist*
+
+# Vendors
+/node_modules
+
+yarn.lock
